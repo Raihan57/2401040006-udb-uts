@@ -107,12 +107,13 @@ http://IP_ZEROTIER:8006
 
 ## Dokumentasi Wajib
 
-Lampiran tangkapan layar berikut:
+![docker ps](screenshots/docker-ps.jpeg)
 
-1. Output perintah `docker ps`
-2. Adminer diakses melalui IP ZeroTier
-3. Login Adminer ke MySQL
-4. Login Adminer ke PostgreSQL
+![Login Adminer](screenshots/adminer.png)
+
+![Login Mysql dari Adminer](screenshots/mysql.png)
+
+![Login Postgres dari Adminer](screenshots/postgres.png)
 
 ---
 
