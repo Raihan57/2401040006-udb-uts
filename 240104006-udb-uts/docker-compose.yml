@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: uts_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_uts
+      MYSQL_DATABASE: uts_mysql_db
+      MYSQL_USER: uts_user
+      MYSQL_PASSWORD: uts_password
+    networks:
+      uts_network:
+        ipv4_address: 172.30.6.10
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15
+    container_name: uts_postgres
+    environment:
+      POSTGRES_DB: uts_postgres_db
+      POSTGRES_USER: uts_user
+      POSTGRES_PASSWORD: uts_password
+    networks:
+      uts_network:
+        ipv4_address: 172.30.6.20
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    container_name: uts_adminer
+    ports:
+      - "172.22.38.90:8006:8080"
+    networks:
+      uts_network:
+        ipv4_address: 172.30.6.30
+    restart: unless-stopped
+
+networks:
+  uts_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.6.0/24
